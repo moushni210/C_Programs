@@ -1,4 +1,6 @@
- ## Q1
+## Q1
+```c
+#include<stdio.h>
 int main()
 {
         int a,b;
