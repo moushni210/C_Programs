@@ -156,7 +156,7 @@ int main()
                 printf("elements of array are not distinct\n");
 return 0;
 }
-```
+
 Output:
 enter array size: 5
 enter elements:
@@ -176,7 +176,7 @@ enter elements:
 4
 3
 elements of array are not distinct
-
+``` 
 ## 45.Write a program to remove duplicate elements from a sorted array. 
 ```c
 
