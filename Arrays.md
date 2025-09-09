@@ -425,6 +425,7 @@ int main()
                         scanf("%d",&arr[i][j]);
                 }
         }
+        printf("input matrix is:\n");
         for(i=0;i<3;i++)
         {
                 for(j=0;j<3;j++)
@@ -441,7 +442,7 @@ int main()
                 {
                         rs=rs+arr[i][j];
                 }
-arr[i][3]=rs;
+                arr[i][3]=rs;
         }
         for(j=0;j<4;j++)
         {
@@ -452,6 +453,7 @@ arr[i][3]=rs;
                 }
                 arr[3][j]=cs;
         }
+        printf("resultant matrix is:\n");
         for(i=0;i<4;i++)
         {
                 for(j=0;j<4;j++)
@@ -462,6 +464,25 @@ arr[i][3]=rs;
         }
 }
 
+Output:
+Enter ele:1
+2
+3
+4
+5
+6
+7
+8
+9
+input matrix is:
+1 2 3
+4 5 6
+7 8 9
+resultant matrix is:
+1 2 3 6
+4 5 6 15
+7 8 9 24
+12 15 18 45
 
 ```
 ## 56. Write a program to find the kth smallest element in an array.
