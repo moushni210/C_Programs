@@ -38,7 +38,7 @@ int main()
 
 }
 ```
-# Output:
+### Output:
 ```
 6
 Even
