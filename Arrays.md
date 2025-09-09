@@ -1,5 +1,5 @@
 ## 42. Write a program to write all the elements of 2-D Array into 1-D Array in row wise.
-
+***
 ```c
 #include<stdio.h>
 int main()
@@ -38,8 +38,8 @@ int main()
 
         return 0;
 }
-
-# Output:
+***
+Output:
 enter array size:
 3
 2
