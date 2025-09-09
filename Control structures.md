@@ -1,4 +1,4 @@
- Q1
+ ## Q1
 int main()
 {
         int a,b;
@@ -614,3 +614,56 @@ int main()
         int mat[m][m];
         printf("enter matrix values:\n");
         for(i=0;i<m;i++){
+for(j=0;j<m;j++){
+                        scanf("%d",&mat[i][j]);
+                }
+        }
+
+        printf("the matrix is: \n");
+         for(i=0;i<m;i++){
+                for(j=0;j<m;j++){
+                        printf("%d ",mat[i][j]);
+                }
+                printf("\n");
+         }
+
+        for(i=0;i<m;i++){
+                for(j=0;j<m;j++){
+                        if(i<=j)
+                        {
+                                sum=sum+mat[i][j];
+}
+ }
+                        }
+         printf("the sum of upper triangular matrix is: %d \n",sum);
+  }
+Q42
+int main()
+{
+        int n,i,j,k;
+        printf("Array size:");
+        scanf("%d",&n);
+        int arr[n];
+
+        printf("Enter Array elements:\n");
+        for(i=0;i<n;i++){
+                scanf("%d",&arr[i]);
+        }
+        for(i=0;i<n;i++){
+                for(j=(i+1);j<n;j++){
+                        if(arr[i]==arr[j])
+                        {
+                                for(k=j;k<n-1;k++)
+                                {
+                                        arr[k]=arr[k+1];
+
+                                }
+                                n--;
+                        }
+                }
+        }
+        printf("Resulting Array:\n");
+        for(i=0;i<n;i++){
+                printf("%d ",arr[i]);
+        }
+}
