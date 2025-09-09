@@ -4,7 +4,7 @@
 int main()
 {
         int a,b;
-        printf("Enter two input values");
+        printf("Enter two input values:\n");
         scanf("%d %d",&a,&b);
         if(a==b)
                 printf("Equal");
@@ -12,7 +12,21 @@ int main()
                 printf("Not Equal");
 
 }
-Q2
+
+Output:
+Enter two input values: 
+5
+7
+Not Equal
+
+Enter two input values: 
+8
+8
+Equal
+```
+## Q2
+```c
+#include<stdio.h>
 int main()
 {
         int a;
@@ -23,6 +37,15 @@ int main()
                 printf("Even");
 
 }
+```
+# Output:
+```
+6
+Even
+
+9
+Odd
+```
 Q3
  int main()
 {
