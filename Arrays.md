@@ -38,8 +38,8 @@ int main()
 
         return 0;
 }
-```
-output:
+
+Output:
 enter array size:
 3
 2
@@ -56,10 +56,9 @@ enter elements:
 5 6
 1-d array is:
 1 2 3 4 5 6 
-
+```
 ## 43. Write a program to write whether a matrix is symmetric or not 
 ```c
-
 #include<stdio.h>
 int main()
 {
@@ -248,6 +247,7 @@ int main()
         return 0;
 }
 
+Output:
 enter size: 7
 enter elements:
 1
@@ -503,6 +503,7 @@ int main()
         int small=kthsmall(n,a,k);
         printf("the kth smallest elemnent is %d",small);
 }
+
 Output:
 enter size: 6
 enter elements:
