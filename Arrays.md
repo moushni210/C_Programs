@@ -39,7 +39,7 @@ int main()
         return 0;
 }
 
-Output:
+# Output:
 enter array size:
 3
 2
