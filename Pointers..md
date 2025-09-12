@@ -414,4 +414,32 @@ int len(char *st)
 enter string: hello everyone
 length of the string is 15
 ```
-
+## 22. Write a program to find the maximum and minimum elements in an array using pointers.
+```c
+#include<stdio.h>
+int larandsma(int *p,int n,int *max,int *min)
+{
+        int i;
+        *min=*p;
+        *max=*p;
+        for(i=1;i<n;i++){
+                if(*(p+i)<*min)
+                        *min=*(p+i);
+                if(*(p+i)>*max)
+                        *max=*(p+i);
+        }
+}
+int main()
+{
+        int arr[]={8,2,58,83,5,46,33,72,21,10};
+        int min,max;
+        int size = sizeof(arr) / sizeof(arr[0]);
+        larandsma(arr,size,&max,&min);
+        printf("largest : %d, smallest : %d\n",max,min);
+        return 0;
+}
+```
+### Output:
+```
+largest : 83, smallest : 2
+```
