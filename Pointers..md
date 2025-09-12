@@ -386,4 +386,32 @@ int main()
 value of a is 10 ,b is 21
 After swapping value of a is 21 , b is 10
 ~~~
+## 21. Implement a function that returns the length of a string using pointers 
+```c
+#include<stdio.h>
+int len(char *str);
+int main()
+{
+        char str[30];
+        printf("enter string: ");
+        fgets(str,30,stdin);
+        int length=len(str);
+        printf("length of the string is %d",length);
+}
+int len(char *st)
+{
+        int i=0;
+        while(*st != '\0')
+        {
+                i++;
+                st++;
+        }
+        return i;
+}
+```
+### Output:
+```
+enter string: hello everyone
+length of the string is 15
+```
 
