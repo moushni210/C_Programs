@@ -443,3 +443,35 @@ int main()
 ```
 largest : 83, smallest : 2
 ```
+## 23. Develop a function to reverse a string in place using pointers. 
+```c
+#include<stdio.h>
+#include<string.h>
+void reverse(char *st);
+int main()
+{
+        char str[20];
+        printf("enter string: ");
+        fgets(str,20,stdin);
+        reverse(str);
+        printf("string after reverse: %s\n",str);
+        return 0;
+}
+void reverse(char *st)
+{
+        int i,j;
+        char temp;
+        for(i=0,j=strlen(st)-1;i<j;i++,j--)
+        {
+                temp=*(st+i);
+                *(st+i)=*(st+j);
+                *(st+j)= temp;
+        }
+}
+```
+### Output:
+```
+enter string: moushni
+string after reverse:
+inhsuom
+```
