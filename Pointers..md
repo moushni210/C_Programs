@@ -179,4 +179,71 @@ value of 1th row, 0th col element is: 4
 value of 1th row, 1th col element is: 5
 value of 1th row, 2th col element is: 6
 ~~~
+## 15. Program to print  elements of a 3-D array using    pointer notation.
+~~~c
+#include<stdio.h>
+int main()
+{
+        int a[2][3][4]={
+                {
+                        { 1, 2, 3, 4},
+                        { 5, 6, 7, 8},
+                        { 9, 10, 11, 12}
+                },
+                {
+                        { 13, 14, 15, 16},
+                        { 17, 18, 19, 20},
+                        { 21, 22, 23, 24}
+                }
+        };
 
+        for(int i=0;i<2;i++){
+                for(int j=0;j<3;j++){
+                        for(int k=0;k<4;k++){
+                                printf("%d ",a[i][j][k]);
+                        }printf("\n");
+                }printf("\n");
+        }
+
+        for(int i=0;i<2;i++)
+                for(int j=0;j<3;j++)
+                        for(int k=0;k<4;k++)
+                                printf("value of a[%d][%d][%d] is %d\n",i,j,k,*(*(*(a+i)+j)+k));
+ return 0;
+}
+~~~
+### Output:
+~~~
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+13 14 15 16
+17 18 19 20
+21 22 23 24
+
+value of a[0][0][0] is 1
+value of a[0][0][1] is 2
+value of a[0][0][2] is 3
+value of a[0][0][3] is 4
+value of a[0][1][0] is 5
+value of a[0][1][1] is 6
+value of a[0][1][2] is 7
+value of a[0][1][3] is 8
+value of a[0][2][0] is 9
+value of a[0][2][1] is 10
+value of a[0][2][2] is 11
+value of a[0][2][3] is 12
+value of a[1][0][0] is 13
+value of a[1][0][1] is 14
+value of a[1][0][2] is 15
+value of a[1][0][3] is 16
+value of a[1][1][0] is 17
+value of a[1][1][1] is 18
+value of a[1][1][2] is 19
+value of a[1][1][3] is 20
+value of a[1][2][0] is 21
+value of a[1][2][1] is 22
+value of a[1][2][2] is 23
+value of a[1][2][3] is 24
+```
