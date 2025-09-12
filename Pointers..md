@@ -247,3 +247,143 @@ value of a[1][2][1] is 22
 value of a[1][2][2] is 23
 value of a[1][2][3] is 24
 ~~~
+## 16. Write a  simple program for call by value.
+~~~c
+#include<stdio.h>
+int modify(int a,int b)
+{
+        a++;
+        b--;
+}
+
+int main()
+{
+        int a=10,b=8;
+        printf("before modifying a is %d, b is %d\n",a,b);
+        modify(a,b);
+        printf("after modifying a is %d, b is %d\n",a,b);
+}
+~~~
+### Output:
+~~~
+before modifying a is 10, b is 8
+after modifying a is 10, b is 8
+~~~
+
+## 17. Write a simple program for call by reference.
+~~~c
+#include<stdio.h>
+int modify(int *xptr, int *yptr)
+{
+        (*xptr)++;
+        (*yptr)--;
+}
+
+int main()
+{
+        int a=10,b=8;
+        printf("before modifying a is %d, b is %d\n",a,b);
+        modify(&a,&b);
+        printf("after modifying a is %d, b is %d\n",a,b);
+        return 0;
+}
+~~~
+### Output:
+~~~
+before modifying a is 10, b is 8
+after modifying a is 11, b is 7
+~~~
+
+## 18. Program to return more than one value from a function using call by    reference.
+~~~
+#include<stdio.h>
+void func(int x, int y,int *ps,int *pd,int *pm)
+{
+        *ps=x+y;
+        *pd=x-y;
+        *pm=x*y;
+
+}
+
+int main()
+{
+        int a, b,sum ,diff,mul;
+        a=7;b=9;
+        printf("value of a is %d, b is %d\n",a,b);
+        func(a,b,&sum,&diff,&mul);
+        printf(" sum is %d\n difference is %d\n product id %d\n",sum,diff,mul);
+        return 0;
+}
+~~~
+
+### Output:
+~~~
+value of a is 7, b is 9
+ sum is 16
+ difference is -2
+ product id 63
+~~~
+
+## 19. Write a program to pass a 1D array to a function.
+~~~c
+#include<stdio.h>
+int func(int a[]);
+int main()
+{
+        int i,arr[5]={1,2,3,4,5};
+        printf("array is:\n");
+        for(i=0;i<5;i++)
+                printf("%d ",arr[i]);
+        printf("\n");
+        func(arr);
+        printf("inside main() after func()\n");
+        for(i=0;i<5;i++)                                                    printf("%d ",arr[i]);                               printf("\n");
+        return 0;
+}
+int func(int a[])
+{
+        int i;
+        printf("inside func():\n");
+        for(i=0;i<5;i++)
+                printf("%d ",a[i]+=2);
+        printf("\n");
+
+}
+~~~
+### Output:
+~~~
+array is:
+1 2 3 4 5
+inside func():
+3 4 5 6 7
+inside main() after func()
+3 4 5 6 7
+~~~
+
+## 20. Create a function that swaps two numbers using   pointers.
+~~~c
+#include<stdio.h>
+int swap(int *pa,int *pb)
+{
+        int temp;
+        temp= *pa;
+        *pa = *pb;
+        *pb =temp;
+}
+
+int main()
+{
+        int a=10,b=21;
+        printf("value of a is %d ,b is %d\n",a,b);
+        swap(&a,&b);
+        printf("After swapping value of a is %d , b is %d\n",a,b);
+        return 0;
+}
+
+~~~
+### Output:
+~~~
+value of a is 10 ,b is 21
+After swapping value of a is 21 , b is 10
+~~~
+
