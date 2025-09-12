@@ -246,4 +246,4 @@ value of a[1][2][0] is 21
 value of a[1][2][1] is 22
 value of a[1][2][2] is 23
 value of a[1][2][3] is 24
-```
+~~~
