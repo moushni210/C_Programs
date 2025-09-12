@@ -138,14 +138,14 @@ return 0;
 }
 ```
 ### Output:
-~~~
+```
 value of 0 th element is 10
 value of 1 th element is 20
 value of 2 th element is 30
-~~~
+```
 
 ## 14. Program to print  elements of a 2-D array by subscripting a pointer to an array variable. 
-~~~c
+```c
 #include<stdio.h>
 int main()
 {
@@ -166,9 +166,9 @@ int main()
 // ptr+i  or ptr
 return 0;
 }
-~~~
+```
 ### Output:
-~~~
+```
 array is:
 123
 456
@@ -178,9 +178,9 @@ value of 0th row, 2th col element is: 3
 value of 1th row, 0th col element is: 4
 value of 1th row, 1th col element is: 5
 value of 1th row, 2th col element is: 6
-~~~
+```
 ## 15. Program to print  elements of a 3-D array using    pointer notation.
-~~~c
+```c
 #include<stdio.h>
 int main()
 {
@@ -211,9 +211,9 @@ int main()
                                 printf("value of a[%d][%d][%d] is %d\n",i,j,k,*(*(*(a+i)+j)+k));
  return 0;
 }
-~~~
+```
 ### Output:
-~~~
+```
 1 2 3 4
 5 6 7 8
 9 10 11 12
@@ -246,9 +246,9 @@ value of a[1][2][0] is 21
 value of a[1][2][1] is 22
 value of a[1][2][2] is 23
 value of a[1][2][3] is 24
-~~~
+```
 ## 16. Write a  simple program for call by value.
-~~~c
+```c
 #include<stdio.h>
 int modify(int a,int b)
 {
@@ -263,15 +263,15 @@ int main()
         modify(a,b);
         printf("after modifying a is %d, b is %d\n",a,b);
 }
-~~~
+```
 ### Output:
-~~~
+```
 before modifying a is 10, b is 8
 after modifying a is 10, b is 8
-~~~
+```
 
 ## 17. Write a simple program for call by reference.
-~~~c
+```c
 #include<stdio.h>
 int modify(int *xptr, int *yptr)
 {
@@ -287,15 +287,15 @@ int main()
         printf("after modifying a is %d, b is %d\n",a,b);
         return 0;
 }
-~~~
+```
 ### Output:
-~~~
+```
 before modifying a is 10, b is 8
 after modifying a is 11, b is 7
-~~~
+```
 
 ## 18. Program to return more than one value from a function using call by    reference.
-~~~
+```
 #include<stdio.h>
 void func(int x, int y,int *ps,int *pd,int *pm)
 {
@@ -314,18 +314,18 @@ int main()
         printf(" sum is %d\n difference is %d\n product id %d\n",sum,diff,mul);
         return 0;
 }
-~~~
+```
 
 ### Output:
-~~~
+```
 value of a is 7, b is 9
  sum is 16
  difference is -2
  product id 63
-~~~
+```
 
 ## 19. Write a program to pass a 1D array to a function.
-~~~c
+```c
 #include<stdio.h>
 int func(int a[]);
 int main()
@@ -349,19 +349,19 @@ int func(int a[])
         printf("\n");
 
 }
-~~~
+```
 ### Output:
-~~~
+```
 array is:
 1 2 3 4 5
 inside func():
 3 4 5 6 7
 inside main() after func()
 3 4 5 6 7
-~~~
+```
 
 ## 20. Create a function that swaps two numbers using   pointers.
-~~~c
+```c
 #include<stdio.h>
 int swap(int *pa,int *pb)
 {
@@ -380,12 +380,12 @@ int main()
         return 0;
 }
 
-~~~
+```
 ### Output:
-~~~
+```
 value of a is 10 ,b is 21
 After swapping value of a is 21 , b is 10
-~~~
+```
 ## 21. Implement a function that returns the length of a string using pointers 
 ```c
 #include<stdio.h>
@@ -474,4 +474,40 @@ void reverse(char *st)
 enter string: moushni
 string after reverse:
 inhsuom
+```
+## 24. Write a program that calculates the sum of all elements in an integer array using pointer arithmetic.
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i;
+        printf("enter n: ");
+        scanf("%d",&n);
+        int arr[n];
+        for(i=0;i<n;i++)
+                scanf("%d",&arr[i]);
+        int sum=0;
+        i=0;
+        while(i<n)
+        {
+                sum=*(arr+i)+sum;
+                i++;
+        }
+        printf("sum is: %d",sum);
+        return 0;
+}
+```
+### Output:
+```
+enter n: 6
+1
+2
+3
+4
+5
+6
+sum is: 21
+```
+## 25. Implement a function to copy one string into another using pointers, without using any standard library functions 
+```c
 ```
