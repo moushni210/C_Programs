@@ -535,3 +535,56 @@ before copying: str1: parrot
 after copying: str1: peacock
  str2: peacock
 ```
+## 26.  Write a program to compare two strings lexicographically (like the strcmp function) using pointers.
+```c
+#include<stdio.h>
+int main()
+{
+        char str1[20],str2[20];
+        int flag,i=0;
+        printf("enter strings:\n");
+        fgets(str1,20,stdin);
+        fgets(str2,20,stdin);
+        while(i<20)
+        {
+                if(*(str1+i) == *(str2+i))
+                        flag=0;
+                else if(*(str1+i) > *(str2+i))
+                {
+                        flag=1;
+                        break;
+                }
+                else
+                {
+                        flag= -1;
+                        break;
+                }
+                i++;
+        }
+        if(flag==0)
+                printf("strings are same \n");
+        else
+                printf("strings are not same.\n");
+        return 0;
+}
+```
+### Output:
+```
+***o/p1:
+enter strings:
+priys
+priya
+strings are not same.
+
+***o/p2:
+enter strings:
+pretty
+pretty
+strings are same
+
+***o/p3:
+enter strings:
+manga
+banga
+strings are not same.
+```
