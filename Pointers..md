@@ -510,4 +510,28 @@ sum is: 21
 ```
 ## 25. Implement a function to copy one string into another using pointers, without using any standard library functions 
 ```c
+#include<stdio.h>
+int main()
+{
+        char str1[20],str2[20];
+        printf("enter string: ");
+        fgets(str1,20,stdin);
+        fgets(str2,20,stdin);
+        printf("before copying: str1: %s str2: %s",str1,str2);
+        for(int i=0;i<20;i++)
+        {
+                *(str1+i) = *(str2+i);
+        }
+        printf("after copying: str1: %s str2: %s",str1,str2);
+        return 0;
+}
+```
+### Output:
+```
+enter string: parrot
+peacock
+before copying: str1: parrot
+ str2: peacock
+after copying: str1: peacock
+ str2: peacock
 ```
