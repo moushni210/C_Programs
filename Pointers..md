@@ -144,4 +144,39 @@ value of 1 th element is 20
 value of 2 th element is 30
 ~~~
 
+## 14. Program to print  elements of a 2-D array by subscripting a pointer to an array variable. 
+~~~c
+#include<stdio.h>
+int main()
+{
+        int a[2][3]={{1,2,3},{4,5,6}};
+        printf("array is: \n");
+        for(int i=0;i<2;i++)
+        {
+                for(int j=0;j<3;j++)
+                        printf("%d",a[i][j]);
+                printf("\n");
+        }
+
+        int (*ptr)[3]=a;
+        for(int i=0;i<2;i++)
+                for(int j=0;j<3;j++)
+                        printf("value of %dth row, %dth col element is: %d\n",i,j,*(*(ptr+i)+j));
+// *(*(ptr+i)+j)  is same as ptr[i][j]  which gives values as o/p.
+// ptr+i  or ptr
+return 0;
+}
+~~~
+### Output:
+~~~
+array is:
+123
+456
+value of 0th row, 0th col element is: 1
+value of 0th row, 1th col element is: 2
+value of 0th row, 2th col element is: 3
+value of 1th row, 0th col element is: 4
+value of 1th row, 1th col element is: 5
+value of 1th row, 2th col element is: 6
+~~~
 
