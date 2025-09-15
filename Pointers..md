@@ -930,7 +930,7 @@ reverse order:
 7 6 5 4 3 2 1
 ```
 ## 37. Write a program to show a pointer to an array whose contents are pointers to structures. 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
