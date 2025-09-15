@@ -972,3 +972,53 @@ struct Student {
 Student 1: Roll = 101, Name = Alice
 Student 2: Roll = 102, Name = Bob
 ```
+## 
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i;
+        printf("enter size: ");
+        scanf("%d",&n);
+        int a[n];
+        printf("enter ele: ");
+        for(i=0;i<n;i++)
+                scanf("%d",&a[i]);
+        int *p,x,flag=0;
+        printf("enter ele to search: ");
+        scanf("%d",&x);
+        p=a;
+        for(i=0;i<n;i++)
+        {
+                if((*(p+i)) ==x)
+                {
+                        printf("found\n");
+                        flag=1;
+                }
+        }
+        if(flag==0)
+                printf("not found\n");
+}
+```
+### Output:
+```
+enter size: 6
+enter ele: 1
+2
+3
+4
+5
+6
+enter ele to search: 3
+found
+```
+```
+enter size: 5
+enter ele: 1
+2
+3
+4
+5
+enter ele to search: 6
+not found
+```
