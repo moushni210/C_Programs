@@ -588,3 +588,89 @@ manga
 banga
 strings are not same.
 ```
+## 27.  Develop a function to reverse an array of integers in place using pointers. 
+```c
+#include<stdio.h>
+int reverse(int n,int arr[n]);
+int main()
+{
+        int n;
+        printf("enter n: ");
+        scanf("%d",&n);
+        int arr[n];
+        for(int i=0;i<n;i++)
+                scanf("%d",&arr[i]);
+        reverse(n,arr);
+        printf("reversed array is: ");
+        for(int i=0;i<n;i++)
+                printf("%d ",arr[i]);
+        return 0;
+}
+int reverse(int n,int *arr)
+{
+        int i,j,temp;
+        for(i=0,j= n-1;i<j;i++,j--)
+        {
+                temp = *(arr+i);
+                *(arr+i) = *(arr+j);
+                *(arr+j) = temp;
+        }
+}
+```
+### Output:
+```
+enter n: 6
+1
+2
+3
+4
+5
+6
+reversed array is: 6 5 4 3 2 1
+```
+## 28.  Write a program to find the largest element using Dynamic Memory Allocation.
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+        int *p,n,i;
+        printf("enter no. of elements: ");
+        scanf("%d",&n);
+        p=(int *)malloc(n*sizeof(int));
+        if(p==NULL)
+        {
+                printf("memory not avalable.\n");
+                exit(1);
+        }
+        printf("enter elements:\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&p[i]);
+        }
+        int lar=p[0];
+        for(i=1;i<n;i++)
+        {
+                if(p[i]>lar)
+                {
+                        lar=p[i];
+                }
+        }
+        printf("largest element is %d",lar);
+        return 0;
+}
+```
+### Output:
+```
+enter no. of elements: 7
+enter elements:
+9
+32
+12
+43
+5
+22
+8
+largest element is 43
+```
+## 
