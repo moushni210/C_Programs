@@ -673,4 +673,302 @@ enter elements:
 8
 largest element is 43
 ```
-## 
+## 29. Write a program in C to calculate the length of a string using a pointer.
+```c
+#include<stdio.h>
+int main()
+{
+        char str[100];
+        int len=0;char *ptr;
+        printf("enter string: ");
+        fgets(str,100,stdin);
+        ptr=str;
+        while(*ptr !='\0')
+        {
+                len++;
+                ptr++;
+        }
+        printf("length of string is %d\n",len);
+return 0;
+}
+```
+### Output:
+```
+enter string: my name
+length of string is 8
+```
+```
+enter string: lets go fun
+length of string is 12
+```
+```
+enter string: i'm so happy
+length of string is 13
+```
+## 30. Write a program  to swap elements using call by reference. 
+```c
+#include<stdio.h>
+int swap(int *x,int *y);
+int main()
+{
+        int a,b;
+        printf("enter a, b values: ");
+        scanf("%d%d",&a ,&b);
+        swap(&a,&b);
+        printf("swapped values a=%d, b=%d",a,b);
+        return 0;
+}
+int swap(int *x,int *y)
+{
+        int temp=*x;
+        *x = *y;
+        *y = temp;
+}
+```
+### Output:
+```
+enter a, b values: 21
+10
+swapped values a=10, b=21
+```
+## 31. Write a program to find the factorial of a given number using pointers. 
+```c
+#include<stdio.h>
+void findFactorial(int num, int *fact)
+{
+        *fact = 1;
+        for (int i = 1; i <= num; i++) {
+                *fact *= i;
+    }
+}
+int main()
+{
+        int n,res;
+        printf("enter n value: ");
+        scanf("%d",&n);
+        findFactorial(n,&res);
+        printf("factorial of %d is %d",n,res);
+        return 0;
+}
+```
+### Output:
+```
+enter n value: 6
+factorial of 6 is 720
+```
+```
+enter n value: 7
+factorial of 7 is 5040
+```
+## 32. Write a program to count the number of vowels and consonants in a string using a pointer.
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char str[100];
+        printf("enter string: ");
+        fgets(str,100,stdin);
+        int vowel=0,cons=0;
+        char *p;
+        p = str;
+        while(*p != '\0')
+        {
+                if(isalpha(*p))
+                {
+                        char ch=tolower(*p);
+                        if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+                                vowel++;
+                        else
+                                cons++;
+                }
+                *p++;
+        }
+        printf("In the string, vowels: %d, consonants: %d",vowel,cons);
+        return 0;
+}
+```
+### Output:
+```
+enter string: My name is Moushni
+In the string, vowels: 6, consonants: 9
+```
+
+## 33.  Write a program  to sort an array using a pointer
+```c
+#include<stdio.h>
+int main()
+{
+        int n;
+        printf("enter array size: ");
+        scanf("%d",&n);
+        int arr[n];
+        for(int i=0;i<n;i++)
+                scanf("%d",&arr[i]);
+        int *p;
+        p=arr;
+        for(int i=0;i<n-1;i++)
+        {
+                for(int j=i+1;j<n;j++)
+                {
+                        if(*(p+j) >*(p+i))
+                        {
+                                int temp= *(p+i);
+                                *(p+i) = *(p+j);
+                                *(p+j) = temp;
+                        }
+                }
+        }
+        printf("sorted array is: ");
+        for(int i=0;i<n;i++)
+                printf("%d ",arr[i]);
+        return 0;
+}
+```
+### Output:
+```
+enter array size: 6
+4
+3
+2
+6
+5
+9
+sorted array is: 9 6 5 4 3 2
+```
+
+
+## 34. Write a  program to demonstrate how a function returns a pointer.
+```c
+#include<stdio.h>
+int* findLarger(int *a, int *b) {
+    if (*a > *b)
+        return a;
+    else
+        return b;
+}
+
+int main()
+{
+    int x = 10, y = 20;
+    int *larger = findLarger(&x, &y);
+    printf("The larger number is: %d\n", *larger);
+    return 0;
+}
+```
+### Output:
+```
+The larger number is: 20
+```
+## 35. Write a program  to compute the sum of all elements in an array using pointers 
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i;
+        printf("enter array size: ");
+        scanf("%d",&n);
+        printf("enter elements:");
+        int arr[n];
+        for(i=0;i<n;i++)
+                scanf("%d",&arr[i]);
+
+        int sum=0,*ptr;
+ptr=arr;
+        for(i=0;i<n;i++)
+        {
+                sum=sum+(*(ptr+i));
+        }
+        printf("sum is %d",sum);
+        return 0;
+
+}
+```
+### Output:
+```
+enter array size: 7
+enter elements:1
+2
+3
+4
+5
+6
+7
+sum is 28
+```
+## 36. Write a program  to print the elements of an array in reverse order.
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i;
+        printf("enter size : ");
+        scanf("%d",&n);
+        int a[n];
+        printf("enter ele: ");
+        for(i=0;i<n;i++)
+                scanf("%d",&a[i]);
+        int *ptr;
+        ptr=a;
+        printf("reverse order: \n");
+        for(i= n-1;i>=0;i--)
+                printf("%d ",*(ptr+i));
+        return 0;
+}
+```
+### Output:
+```
+enter size : 7
+enter ele: 1
+2
+3
+4
+5
+6
+7
+reverse order:
+7 6 5 4 3 2 1
+```
+## 37. Write a program to show a pointer to an array whose contents are pointers to structures. 
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    int roll;
+    char name[20];
+};                                                                                                                      int main() {                                                    // Create structure pointers                                struct Student *s1 = (struct Student *)malloc(sizeof(struct Student));
+    struct Student *s2 = (struct Student *)malloc(sizeof(struct Student));
+
+    // Initialize structure data
+    s1->roll = 101;
+    snprintf(s1->name, sizeof(s1->name), "Alice");
+
+    s2->roll = 102;
+    snprintf(s2->name, sizeof(s2->name), "Bob");
+
+    // Array of pointers to structures
+    struct Student *arr[2];
+    arr[0] = s1;
+    arr[1] = s2;
+    
+    // Pointer to the array
+    struct Student **ptr = arr;
+
+    // Accessing data using pointer to array
+    for (int i = 0; i < 2; i++) {
+        printf("Student %d: Roll = %d, Name = %s\n", i + 1, ptr[i]->roll, ptr[i]->name);
+    }
+
+    // Free memory
+    free(s1);
+    free(s2);
+
+    return 0;
+}
+```
+### Output:
+```
+Student 1: Roll = 101, Name = Alice
+Student 2: Roll = 102, Name = Bob
+```
