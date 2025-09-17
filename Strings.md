@@ -357,3 +357,46 @@ enter string:
 intellectual and intelligent
 maximum occurred  charcter is l for 5 times
 ```
+
+## 11.Write a program in C to read a string from the keyboard and sort it using bubble sort. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30],temp;
+        printf("enter string:\n");
+        fgets(str,30,stdin);
+        int i,j,len=strlen(str);
+        for(i=0;i<len-1;i++)
+        {
+                for(j=0;j<len-i-1;j++)
+                {
+                        if(str[j]>str[j+1])
+                        {
+                                temp=str[j];
+                                str[j]=str[j+1];
+                                str[j+1]=temp;
+                        }
+                }
+        }
+        printf("sorted string is %s",str);
+        return 0;
+}
+```
+### Output:
+```enter string:
+programming in c
+sorted string is
+  acggiimmnnoprr
+```
+```
+enter string:
+intelligent
+sorted string is
+eegiillnntt
+```
+
+## 12.Write a C program to sort a string array in ascending order.
+```c
+
