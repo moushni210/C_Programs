@@ -399,4 +399,52 @@ eegiillnntt
 
 ## 12.Write a C program to sort a string array in ascending order.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[10][50],temp[50];
+        int n,i,j;
+        printf("enter n no. of strings: ");
+        scanf("%d",&n);
+        getchar();
+        printf("enter strings:\n");
+        for(int i=0;i<n;i++)
+        {
+                fgets(str[i],50,stdin);
+                str[i][strcspn(str[i], "\n")] = '\0';
+        }
+        for(i=0;i< n-1;i++)
+        {
+                for(j=0;j< n-i-1;j++)
+                {
+                        if(strcmp(str[j],str[j+1])>0)
+                        {
+                                strcpy(temp,str[j]);
+                                strcpy(str[j],str[j+1]);
+                                strcpy(str[j+1],temp);
+                        }
+                }
+        }
+        printf("\nstrings in ascending order:");
+        for(i=0;i<n;i++)
+                printf("%s\n",str[i]);
+        return 0;
+}
+```
+### Output:
+```
+enter n no. of strings: 5
+enter strings:
+mango
+papaya
+apple
+banana
+cherry
 
+strings in ascending order:apple
+banana
+cherry
+mango
+papaya
+```
