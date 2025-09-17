@@ -972,7 +972,7 @@ struct Student {
 Student 1: Roll = 101, Name = Alice
 Student 2: Roll = 102, Name = Bob
 ```
-## 
+## 39. Logic to search an element in an array using pointers. 
 ```c
 #include<stdio.h>
 int main()
@@ -1022,3 +1022,404 @@ enter ele: 1
 enter ele to search: 6
 not found
 ```
+
+## 40. Write a  program to add two matrices using pointers.
+```c
+#include<stdio.h>
+int main()
+{
+        int i,j;
+        int a[3][3],b[3][3];
+        int s[3][3];
+        printf("Enter elements of a-Matrix :\n");
+        for(i=0;i<3;i++)
+        {
+                for(j=0;j<3;j++)
+                {
+                        scanf("%d",(*(a+i)+j));
+                }
+        }
+
+        printf("Enter elements of b-Matrix :\n");
+        for(i=0;i<3;i++)
+        {
+                for(j=0;j<3;j++)
+                {
+                        scanf("%d",(*(b+i)+j));
+                }
+        }
+
+        printf("sum of matrices:\n");
+        for(i=0;i<3;i++)
+        {
+                for(j=0;j<3;j++)
+                {
+*(*(s+i)+j) = *(*(a+i)+j) + *(*(b+i)+j);
+                        printf("%d\t ",*(*(s+i)+j));
+                }
+                printf("\n");
+        }
+
+        return 0;
+}
+```
+### Output:
+```
+Enter elements of a-Matrix :
+1
+23
+3
+4
+5
+6
+7
+8
+9
+Enter elements of b-Matrix :
+1
+2
+3
+4
+5
+6
+7
+8
+9
+sum of matrices:
+2        25      6
+8        10      12
+14       16      18
+```
+
+## 41. Write a program to multiply two matrix using pointers
+```c
+#include<stdio.h>
+int main()
+{
+        int a[3][3],b[3][3];
+        int m[3][3];
+        int i,j,sum;
+
+        printf("enter a-matrix elements:\n");
+        for(i=0;i<3;i++) {
+                for(j=0;j<3;j++) {
+                        scanf("%d",*(a+i)+j);
+                }
+        }
+
+        printf("enter b- matrix elements:\n");
+        for(i=0;i<3;i++) {
+                for(j=0;j<3;j++) {
+                        scanf("%d",*(b+i)+j);
+                }
+        }
+
+        for(i=0;i<3;i++) {
+                for(j=0;j<3;j++) {
+                        for(int k=0;k<3;k++) {
+                                sum = sum + ( (*(*(a+i)+k)) * (*(*(b+k)+j)) );
+                        }
+                        *(*(m+i)+j) = sum;
+                        sum=0;
+}
+        }
+
+        printf("multiplication matrix is: \n");
+        for(i=0;i<3;i++) {
+                for(j=0;j<3;j++) {
+                        printf("%d\t",*(*(m+i)+j));
+                }
+                printf("\n");
+        }
+
+        return 0;
+}
+
+```
+### Output:
+```
+enter a-matrix elements:
+10
+20
+10
+4
+5
+6
+2
+3
+5
+enter b- matrix elements:
+3
+2
+4
+3
+
+3
+9
+4
+4
+2
+multiplication matrix is:
+130     120     240
+51      47      73
+35      33      45
+```
+
+## 44. Program to access dynamically allocated memory as a 1d array
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+        int i,n;
+        printf("array size: ");
+        scanf("%d",&n);
+        int *p;
+        p=(int *)malloc(n*sizeof(int));
+        if(p==NULL)
+        {
+                printf("memory not available\n");
+                exit(0);
+        }
+        printf("enter eleemnts:\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&p[i]);
+        }
+        printf("array is : ");
+        for(i=0;i<n;i++)
+        {
+                printf("%d ",p[i]);
+        }
+        return 0;
+}
+```
+### Output:
+```
+array size: 7
+enter eleemnts:
+1
+2
+3
+4
+5
+6
+7
+array is : 1 2 3 4 5 6 7
+```
+
+## 45. Program to access dynamically allocate a 2-D array using a pointer to an array
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+        int rows,i,j;
+        printf("enter rows value: ");
+        scanf("%d",&rows);
+        int (*p)[3];
+        p=(int (*)[3])malloc(rows*3* sizeof(int));
+        if(p==NULL)
+        {
+                printf("memory not available\n");
+                exit(0);
+        }
+        printf("enter elements: \n");
+        for(i=0;i<rows;i++){
+                for(j=0;j<3;j++){
+                        scanf("%d",(*(p+i)+j));
+                }
+        }
+
+        printf("the array is:\n");
+        for(i=0;i<rows;i++){
+                for(j=0;j<3;j++){
+                        printf("%d ",*(*(p+i)+j));
+                }
+                printf("\n");
+        }
+        free(p);
+ return 0;
+}
+```
+### Output:
+```
+enter rows value: 4
+enter elements:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+the array is:
+1 2 3
+4 5 6
+7 8 9
+10 11 12
+```
+
+## 46. Write a program to print array of pointer 
+```c
+#include<stdio.h>
+int main()
+{
+        int n,i,j;
+        int var1=10,var2=20,var3=30;
+        int *arr[3];
+        arr[0]=&var1;
+        arr[1]=&var2;
+        arr[2]=&var3;
+        printf("array of pointers:\n");
+        for(i=0;i<3;i++)
+                printf("value of var%d: %d\taddress: %p\n",i+1,*arr[i],arr[i]);
+        return 0;
+}
+```
+### Output:
+```
+array of pointers:
+value of var1: 10       address: 0x7ffe25ad7290
+value of var2: 20       address: 0x7ffe25ad7294
+value of var3: 30       address: 0x7ffe25ad7298
+```
+
+## 47. Write a program to print pointer to an array
+```c
+#include<stdio.h>
+int main()
+{
+        int p[3]={12,21,24};
+        int (*ptr)[3];
+ptr = &p;
+        for(int i=0;i<3;i++)
+        {
+                printf("%4d",(*ptr)[i]);
+        }
+        return 0;
+}
+```
+### Output: 
+```
+  12  21  24
+```
+
+## 48. Program to dynamically allocate a 2-D array using array of pointers
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+        int i,j,cols;
+        printf("enter cols: ");
+        scanf("%d",&cols);
+        int *a[3];
+        for(i=0;i<3;i++)
+                a[i]=(int *)malloc(cols*sizeof(int));
+        printf("enter elements:\n");
+        for(i=0;i<3;i++) {
+                for(j=0;j<cols;j++) {
+                        scanf("%d",&a[i][j]);
+                }
+        }
+        printf("the matrix is: \n");
+        for(i=0;i<3;i++) {
+                for(j=0;j<cols;j++) {
+                        printf("%5d",a[i][j]);
+                }
+                printf("\n");
+        }
+        for(i=0;i<3;i++)
+                free(a[i]);
+        return 0;
+}
+```
+### Output:
+```
+enter cols: 4
+enter elements:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+the matrix is:
+    1    2    3    4
+    5    6    7    8
+    9   10   11   12
+```
+
+## 49. Program to invoke a function using function pointer
+```c
+#include<stdio.h>
+int mul(int, int);
+int main()
+{
+        int (*fp)(int, int);
+        int result,a,b;
+        scanf("%d%d",&a,&b);
+        fp=mul;
+        result=(*fp)(a,b);
+        printf("product of a,b is %d\n",result);
+        return 0;
+
+}
+int mul(int x,int y)
+{
+        return x*y;
+}
+```
+### Output:
+```
+21
+13
+product of a,b is 273
+```
+
+## 50. Program to send a function ‘s address as an argument to other function
+```c
+#include<stdio.h>
+int max(int,int);
+int large(int ,int,int (*ptr)(int, int));
+int main()
+{
+        int a,b;
+        scanf("%d%d",&a,&b);
+
+        int lar=large(a,b,max);
+        printf(" maximum number is %d",lar);
+}
+int max(int x,int y)
+{
+        if(x>y)
+                return x;
+        else
+                return y;
+}
+int large(int u,int v,int (*ptr)(int, int))
+{
+        return ptr(u,v);
+}
+
+```
+### Output:
+```
+8
+3
+ maximum number is 8
+```
+
+
