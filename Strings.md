@@ -253,7 +253,107 @@ digits are: 3
 special characters are: 2
 ```
 
+## 8. Write a program in C to copy one string to another string.
+```c
+#include<stdio.h>
+int main()
+{
+        char str1[20],str2[20];
+        printf("enter strings:\n");
+        fgets(str1,20,stdin);
+        fgets(str2,20,stdin);
+        printf("before copy: str1: %s ,str2:%s \n",str1,str2);
+        int i=0;
+        while(str2[i]!='\0')
+        {
+                str1[i]=str2[i];
+                i++;
+        }
+        str1[i]='\0';
+        printf("after copy: str1: %s ,str2:%s \n",str1,str2);
+}
+```
+### Output:
+```
+enter strings:
+moushni
+beauty
+before copy: str1: moushni
+ ,str2:beauty
 
+after copy: str1: beauty
+ ,str2:beauty
+```
 
+## 9. Write a program in C to count the total number of vowels or consonants in a string.
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char str[30];
+        printf("enter string:\n");
+        fgets(str,30,stdin);
+        int vowel=0,cons=0;
+        for(int i=0;str[i]!='\0';i++)
+        {
+                if(isalpha(str[i]))
+                {
+                        char ch=tolower(str[i]);
+                        if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+                                vowel++;
+                        else
+                                cons++;
+                }
+        }
+        printf("vowels : %d, consonants: %d",vowel,cons);
+        return 0;
+}
+```
+### Output:
+```
+enter string:
+Meghamala
+vowels : 4, consonants: 5
+```
 
-
+## 10. Write a program in C to find the maximum number of characters in a string.
+```c
+#include<stdio.h>
+int main()
+{
+        char str[40];
+        printf("enter string:\n");
+        fgets(str,40,stdin);
+//      str[strcspn(str, "\n")] = '\0';
+        int count=0,lar=0;
+        char ch;
+        for(int i=0;str[i]!='\0';i++)
+        {
+                count=0;
+                for(int j=0;str[j]!='\0';j++)
+                {
+                        if(str[i]==str[j])
+                                count++;
+                }
+                if(count>lar)
+                {
+                        lar=count;
+                        ch=str[i];
+                }
+        }
+        printf("maximum occurred  charcter is %c for %d times",ch,lar);
+        return 0;
+}
+```
+### Output:
+```
+enter string:
+intellectual
+maximum occurred  charcter is l for 3 times
+```
+```
+enter string:
+intellectual and intelligent
+maximum occurred  charcter is l for 5 times
+```
