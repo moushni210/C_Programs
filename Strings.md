@@ -139,51 +139,29 @@ No. of words are: 9
 ## 6. Write a program in C to compare two strings without using string library functions.
 ```c
 #include<stdio.h>
-int len(char str[])
-{
-        int i=0;
-        while(str[i]!='\0')
-        {
-                i++;
-        }
-        return i;
-}
+int astrcmp(char *str1,char *str2);
 int main()
 {
         char str1[30],str2[30];
         printf("enter strings: \n");
         fgets(str1,30,stdin);
         fgets(str2,30,stdin);
-        int i=0,flag,count=0;
-        int len1=len(str1);
-        int len2=len(str2);
-        if(len1==len2)
-        {
-                while(i<len1)
-                {
-                if(*(str1+i) == *(str2+i))
-                        flag=0;
-                else if(*(str1+i) > *(str2+i))
-                {
-                        flag=1;
-                        break;
-                }
-                else
-                {
-                        flag= -1;
-                        break;
-                }
-                i++;
-                }
-        if(flag==0)
+        if(astrcmp(str1,str2)==0)
                 printf("strings are same \n");
-        else if(flag==1)
-                printf("first string greater than secong string\n");
         else
-                printf("first string lesser than secong string\n");
-        }                                                           else
                 printf("strings are not same");
         return 0;
+}
+int astrcmp(char *str1,char *str2)
+{
+        while(*str1 == *str2)
+                {
+                        if(*str1=='\0')
+                                return 0;
+                        str1++;
+                        str2++;
+                }
+                return (*str1-*str2);
 }
 ```
 ### Output:
@@ -447,4 +425,188 @@ banana
 cherry
 mango
 papaya
+```
+
+## 13. Write a program in C to extract a substring from a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("enter string:");
+        fgets(str,100,stdin);
+        char str1[20];
+        int start,len;
+        printf("enter start index and length of sub string: ");
+        scanf("%d%d",&start,&len );
+        strncpy(str1,str+start,len);
+        str1[len]='\0';
+        printf("Original string: %s\nextracted string: %s\n",str,str1);
+
+        return 0;
+}
+```
+### Output:
+```
+enter string:have a nice day!
+enter start index and length of sub string: 7
+4
+Original string: have a nice day!
+
+extracted string: nice
+```
+```
+enter string:have a good day!
+enter start index and length of sub string: 8
+4
+Original string: have a good day!
+
+extracted string: ood
+```
+
+## 15. Write a program in C to read a sentence and replace lowercase characters with uppercase and vice versa.
+```c
+#include<stdio.h>
+int main()
+{
+        char str[100];
+        printf("enter string: ");
+        fgets(str,100,stdin);
+        for(int i=0;str[i]!='\0';i++)
+        {
+                if(str[i]>64 && str[i]<91)
+                {
+                        str[i]=str[i]+32;
+                }
+                else if(str[i]>96 && str[i]<123)
+                {
+                        str[i]=str[i]-32;
+                }
+        }
+        printf("after changing string is: %s",str);
+        return 0;
+}
+```
+### Output:
+```
+enter string: BCG Strategy Consulting Job Simulation on Forage
+after changing string is: bcg sTRATEGY cONSULTING jOB sIMULATION ON fORAGE
+```
+```
+enter string: Hello everyone! I'm happy for u.
+after changing string is: hELLO EVERYONE! i'M HAPPY FOR U.
+```
+
+## 17. Write a program in C to remove characters from a string except alphabets.
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char  str[40],str1[40];
+        printf("enter string: ");
+        fgets(str,40,stdin);
+        int j=0;
+        for(int i=0;str[i]!='\0';i++)
+        {
+                if((isalpha(str[i])))
+                {
+                                str1[j]=str[i];
+                                j++;
+                }
+        }
+        str1[j]='\0';
+        printf("string after removing char except alphabets: %s",str1);
+        return 0;
+}
+```
+### Output:
+```
+enter string: uo309-l.aw-dp;a.w'q0
+string after removing char except alphabets: uolawdpawq
+```
+```
+enter string: oawi-[ol/o0d=['LD/O0L,, Z
+string after removing char except alphabets: oawiolodLDOLZ
+```
+
+## 18. Write a program in C to find the frequency of characters.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[40];
+        printf("enter string: ");
+        fgets(str,40,stdin);
+        int count;
+        for(int i=0;i<(strlen(str)-1);i++)
+        {
+                char ch=str[i];
+                count=1;
+                if(str[i]!=1)
+                {
+                        for(int j=i+1;j<(strlen(str)-1);j++)                        {
+                                if(str[i]==str[j])
+                                {
+                                        count++;
+                                        str[j]=1;
+                                }
+                        }
+                        printf("the frequency of \'%c\' is %d\n",ch,count);
+                }
+        }
+        return 0;
+}
+```
+### Output:
+```
+enter string: hello
+the frequency of 'h' is 1
+the frequency of 'e' is 1
+the frequency of 'l' is 2
+the frequency of 'o' is 1
+```
+```
+enter string: fantastic
+the frequency of 'f' is 1
+the frequency of 'a' is 2
+the frequency of 'n' is 1
+the frequency of 't' is 2
+the frequency of 's' is 1
+the frequency of 'i' is 1
+the frequency of 'c' is 1
+```
+
+## 19. Write a program in C to combine two strings manually.
+```c
+#include<stdio.h>
+int main()
+{
+        char str1[40],str2[30];
+        printf("enter strings: ");
+        gets(str1,40,stdin);
+        gets(str2,30,stdin);
+        int i=0,j;
+        while(str1[i]!='\0')
+        {
+
+                i++;
+        }
+        for(j=0;str2[j]!='\0';j++)
+        {
+                *(str1+i+j) = str2[j];
+        }
+        *(str1+i+j) ='\0';
+        printf("after combining str1: %s\nstr2:%s\n",str1,str2);
+        return 0;
+}
+```
+### Output:
+```
+enter strings: para
+llel
+after combining str1: parallel
+str2:llel
 ```
