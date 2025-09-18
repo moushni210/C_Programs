@@ -498,6 +498,45 @@ enter string: Hello everyone! I'm happy for u.
 after changing string is: hELLO EVERYONE! i'M HAPPY FOR U.
 ```
 
+## 16. Write a program in C to find the number of times a given word 'the' appears in the given string
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+        char str[100];
+        printf("enter string: ");
+        fgets(str,100,stdin);
+        str[strcspn(str, "\n")]='\0';
+        char word[10];
+        int count=0,i=0,j;
+        while(str[i]!='\0')
+        {
+                j=0;
+                while(str[i] != ' ' && str[i] !='\0')
+                {
+                        if(isalpha(str[i])){
+                        word[j++] = tolower(str[i]);
+                        }
+                        i++;
+                }
+                word[j]='\0';
+                if(strcmp(word, "the") == 0)
+                        count++;
+                if(str[i] == ' )
+                        i++;
+        }
+        printf("in the string \"the\" has appeared %d times.\n",count);
+        return 0;
+}
+```
+### Output:
+```
+enter string: The quick brown fox jumps over the lazy dog. THE dog barked.
+in the string "the" has appeared 3 times.
+```
+
 ## 17. Write a program in C to remove characters from a string except alphabets.
 ```c
 #include<stdio.h>
