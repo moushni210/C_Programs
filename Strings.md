@@ -649,3 +649,56 @@ llel
 after combining str1: parallel
 str2:llel
 ```
+
+## 20. Write a program in C to find the largest and smallest words in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+        char word[20],sword[20],lword[20];
+        int i=0,k=0,j,lar=0,sma=0,count=0;
+        while(str[i]!= ' ')
+        {
+                sword[k++] = str[i++];
+        }
+        sword[k]='\0';
+        sma=strlen(sword);
+        i=0;
+        while(str[i] !='\0')
+        {
+                if(str[i] != ' ')
+                {
+                        word[j++]=str[i++];
+                }
+                else
+                {
+                        word[j]='\0';
+                        count=strlen(word);
+                        j=0;
+                        i++;
+                        if(count>lar)
+                {
+                        lar=count;
+                        strcpy(lword,word);
+                }
+                else if(count<sma)
+                {
+                        sma=count;
+                        strcpy(sword,word);
+                }
+        }}
+        printf("smallest string: %s \nlargest string: %s\n",sword,lword);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: the engineer is on a vacation
+smallest string: a
+largest string: engineer
+```
