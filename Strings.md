@@ -682,16 +682,17 @@ int main()
                         j=0;
                         i++;
                         if(count>lar)
-                {
-                        lar=count;
-                        strcpy(lword,word);
+                        {
+                                 lar=count;
+                                 strcpy(lword,word);
+                        }
+                        else if(count<sma)
+                        {
+                                 sma=count;
+                                 strcpy(sword,word);
+                        }
                 }
-                else if(count<sma)
-                {
-                        sma=count;
-                        strcpy(sword,word);
-                }
-        }}
+        }
         printf("smallest string: %s \nlargest string: %s\n",sword,lword);
         return 0;
 }
