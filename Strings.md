@@ -606,8 +606,7 @@ the frequency of 'h' is 1
 the frequency of 'e' is 1
 the frequency of 'l' is 2
 the frequency of 'o' is 1
-```
-```
+``` ```
 enter string: fantastic
 the frequency of 'f' is 1
 the frequency of 'a' is 2
@@ -702,4 +701,422 @@ int main()
 Enter string: the engineer is on a vacation
 smallest string: a
 largest string: engineer
+```
+
+## 21. Write a program in C to convert a string to uppercase.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30];
+        printf("enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        int i=0;
+        while(str[i])
+        {
+                if(str[i]>=97 && str[i]<=122)
+                {
+                        str[i]=str[i]-32;
+                }
+                i++;
+        }
+        printf("resultant string is : \'%s\'\n",str);
+        return 0;
+}
+```
+### Output:
+```
+enter string: NJkjpiN ;Ij;;
+resultant string is : 'NJKJPIN ;IJ;;'
+``` ```
+enter string: jkOJ0F-*&*8I)(IOmcld
+resultant string is : 'JKOJ0F-*&*8I)(IOMCLD'
+```
+
+## 22. Write a program in C to convert a string to lowercase.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        int i=0;
+        while(str[i])
+        {
+                if(str[i]>=65 && str[i]<=90)
+                {
+                        str[i]=str[i]+32;
+                }
+                i++;
+        }
+        printf("Resultant string is: \'%s\'\n ",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: OJP8inkvg00M9/';
+Resultant string is: 'ojp8inkvg00m9/';'
+``` ```
+Enter string: uhdkiUJ0MOI><*&*%&HJih
+Resultant string is: 'uhdkiuj0moi><*&*%&hjih'
+```
+
+## 23. Write a program in C to check whether a character is a Hexadecimal Digit or not.
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char ch;
+        printf("Enter char: ");
+        scanf("%c",&ch);
+                if(isxdigit(ch))
+                        printf("Is hexadigit\n");
+                else
+                        printf("Not a hexadigit\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter char: H
+Not a hexadigit
+``` ```
+Enter char: f
+Is hexadigit
+``` ```
+Enter char: 9
+Is hexadigit
+```
+
+## 24. Write a program in C to check whether a letter is uppercase or not.
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char ch;
+        printf("Enter char: ");
+        scanf("%c",&ch);
+                if(isupper(ch))
+                        printf("In Uppercase\n");
+                else
+                        printf("Not in Uppercase\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter char: j
+Not in Uppercase
+``` ```
+Enter char: C
+In Uppercase
+```
+
+## 25. Write a program in C to replace the spaces in a string with a specific character.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("Enter char to replace space: ");
+        scanf("%c",&ch);
+
+        int i=0;
+        while(str[i])
+        {
+                if(str[i]== ' ')
+                {
+                        str[i]=ch;
+                }
+                i++;
+        }
+        printf("Resultant string: \"%s\"\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: Once upon a time , there lived a princess.
+Enter char to replace space: $
+Resultant string: "Once$upon$a$time$,$there$lived$a$princess."
+``` ```
+Enter string: Longlong ago there was a king, who is a great ruler.
+Enter char to replace space: *
+Resultant string: "Longlong*ago*there*was*a*king,*who*is*a*great*ruler."
+```
+
+## 26. Write a program in C to count the number of punctuation characters present in a string.  
+```c
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int count=0,i=0;
+        while(str[i])
+        {
+                if(ispunct(str[i]))
+                {
+                        count++;
+                }
+                i++;
+        }
+        printf("In the string %d punctuations.\n",count);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: Hello! guys ** (0) we are here $ to #buzz
+In the string 7 punctuations.
+``` ```
+Enter string: mo&^t*5J)m<>/?
+In the string 8 punctuations.
+```
+
+## 28. Write a program in C to check whether a letter is lowercase or not. 
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char ch;
+        printf("Enter char: ");
+        scanf("%c",&ch);
+                if(islower(ch))
+                        printf("In lowercase\n");
+                else
+                        printf("Not in lowercase\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter char: a
+In lowercase
+``` ```
+Enter char: U
+Not in lowercase
+``` ```
+Enter char: 9
+Not in lowercase
+```
+
+## 30. Write a program in C to check whether a character is a digit or not. 
+```c
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+        char ch;
+        printf("Enter char: ");
+        scanf("%c",&ch);
+                if(isdigit(ch))
+                        printf("Its digit.\n");
+                else
+                        printf("Not a digit.\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter char: 2
+Its digit.
+``` ```
+Enter char: &
+Not a digit.
+``` ```
+Enter char: j
+Not a digit.
+```
+
+## 32. Write a C program to find the repeated character in a string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int i,j;
+        for(i=0;i<strlen(str);i++)
+        {
+                if(str[i]!='0') {
+                        for(j=i+1;j<strlen(str);j++) {
+                                if(str[i] == str[j])
+                                {
+                                        str[j]='0';
+                                        printf("%c is repeated.\n",str[i]);
+                                }
+                        }
+                }
+        }
+        return 0;
+}
+```
+### Output:
+```
+Enter string: prerana
+r is repeated.
+a is repeated.
+``` ```
+Enter string: ambica
+a is repeated.
+```
+
+## 33. Write a C program to count each character in a given string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int i,j,count;
+        for(i=0;i<strlen(str);i++)
+        {
+                count=1;
+                if(str[i]!='0') {
+                        for(j=i+1;j<strlen(str);j++) {
+                                if(str[i] == str[j])
+                                {
+                                        str[j]='0';
+                                        count++;
+                                }
+                        }
+                        printf("character: %c  || count: %d\n",str[i],count);
+                }
+        }
+        return 0;
+}
+```
+### Output:
+```
+Enter string: barbaric
+character: b  || count: 2
+character: a  || count: 2
+character: r  || count: 2
+character: i  || count: 1
+character: c  || count: 1
+``` ```
+Enter string: pharmaceutical
+character: p  || count: 1
+character: h  || count: 1
+character: a  || count: 3
+character: r  || count: 1
+character: m  || count: 1
+character: c  || count: 2
+character: e  || count: 1
+character: u  || count: 1
+character: t  || count: 1
+character: i  || count: 1
+character: l  || count: 1
+```
+
+## 34. Write a C program to convert vowels into uppercase characters in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+        char str[40];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int i=0;
+        while(str[i])
+        {
+                if(str[i]=='a' || str[i]=='e' || str[i]=='o' || str[i]=='i' || str[i]=='u')
+                {
+                        str[i]=toupper(str[i]);
+                }
+                i++;
+        }
+        printf("String is \"%s\"",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: moushni
+String is "mOUshnI"
+```
+
+## 38. Write a C program to reverse all the vowels present in a given string. Return the newly created string.
+```c
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+int main()
+{
+        char str[30],vow[30],ch;
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str,"\n")]='\0';
+
+        int i=0,j=0;
+        while(str[i])
+        {
+                ch=tolower(str[i]);
+                if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+                {
+                        vow[j++]=str[i];
+                }
+                i++;
+        }
+        vow[j]='\0';
+        i=0;
+        j=strlen(vow);
+        while(str[i])
+        {
+                ch=tolower(str[i]);            
+                if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+                {
+                             str[i]=vow[j-1];
+                             j--;
+                }                                 
+                i++;
+        }
+        printf("Final string is \"%s\"",str);
+        return 0;
+}
+```
+###
+```
+Enter string: Peculiar
+Final string is "Paciluer"
+``` ```
+Enter string: Beautiful
+Final string is "Buiutafel"
 ```
