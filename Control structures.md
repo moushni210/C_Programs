@@ -46,8 +46,10 @@ Even
 9
 Odd
 ```
-Q3
- int main()
+## 3
+```c
+#include<stdio.h>
+int main()
 {
         int a;
         scanf("%d",&a);
@@ -56,7 +58,10 @@ Q3
         else
                 printf("Negative");
 }
-Q4
+```
+## 4
+```c
+#include<stdio.h>
 int main()
 {
         int a;
@@ -66,8 +71,11 @@ int main()
         else
                 printf("Not a Leap Year");
 
-} 
-Q5
+}
+```
+## 5
+```c
+#include<stdio.h>
 int main()
 {
         int age;
@@ -78,7 +86,10 @@ int main()
                 printf("Inelegible");
 
 }
-Q6
+```
+## 6
+```c
+#include<stdio.h>
 int main()
 {
         int m;
@@ -90,8 +101,10 @@ int main()
         else
                 printf("N is -1");
 
-}     
-Q7
+}
+```     
+## 7
+```c
 int main()
 {
         int a,b,c;
@@ -108,8 +121,11 @@ int main()
                         printf("c is largest");
 
 
-}       
-Q8
+}
+```    
+## 8
+```c
+#include<stdio.h>
 int main()
 {
         char ch;
@@ -119,7 +135,10 @@ int main()
         else
                 printf("its a consonant");
 }
-Q9
+```
+## 9
+```c
+#include<stdio.h>
 int main()
 {
         char ch;
@@ -129,7 +148,9 @@ int main()
         else
                 printf("it is not an alphabet");
 }
-Q10
+```
+## 10
+```c
 int main()
 {
         int a,b;
@@ -143,8 +164,11 @@ int main()
                 printf("Min: %d",a);
         else
                 printf("Min: %d",b);
-}  
- Q11
+}
+```
+## 11
+```c
+#include<stdio.h>
 int main()
 {
         int x;
@@ -170,7 +194,10 @@ int main()
                          break;
         }
 }
-Q12
+```
+## Q12
+```c
+#iclude<stdio.h>
 int main()
 {
         char ch;
@@ -183,7 +210,10 @@ int main()
         else
                 printf("enter a char");
 }
-Q13
+```
+## Q13
+```c
+#include<stdio.h>
 int main()
 {
         int x,y;
@@ -213,7 +243,10 @@ int main()
                          break;
         }
 }
-Q14
+```
+## Q14
+```c
+#include<stdio.h>
 int main()
 {
         int n1,n2,x;
@@ -230,7 +263,10 @@ int main()
                         break;
         }
 }
-Q15
+```
+## Q15
+```c
+#include<stdio.h>
 int main()
 {
         int i;
@@ -240,7 +276,8 @@ int main()
                  printf("%d\n",i);
         }
 }
-Q16
+```
+## Q16
 int main()
 {
         int i=1,sum=0;
@@ -287,7 +324,10 @@ int main()
                 printf("prime");
         }
 }
-Q19
+```
+## Q19
+```c
+#include<stdio.h>
 int main()
 {
         int num,r,sum=0;
