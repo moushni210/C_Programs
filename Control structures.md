@@ -507,6 +507,92 @@ int main()
         return 0;
 }
 ```
+## 28.Write a c program to check whether a given string is a palindrome or not using a for loop.
+```c
+#include<stdio.h>
+int main()
+{
+        char str[20];
+        printf("String: ");
+        scanf("%s",str);
+        int i=0,len=0,j,count=0;
+        while(str[len])
+        {
+                len++;
+        }
+        for(i=0,j=len-1;i<j;i++,j--) {
+                if(str[i] == str[j]) {
+                        count++;
+                }
+        }
+        if(count==(len/2))
+                printf("Palindrome string\n");
+        else
+                printf("Not a Plaindrome\n");
+        return 0;
+}
+```
+### Output:
+```
+String: madam
+Palindrome string
+``` ```
+String: maester
+Not a Plaindrome
+```
+## 29.Write a c program to concatenate two strings without using library functions using a while loop.
+```c
+#include<stdio.h>
+int main()
+{
+        char str1[40],str2[40];
+        printf("Enter strings: ");
+        scanf("%s",str1);
+        scanf("%s",str2);
+        int i=0,j=0;
+        while(str1[i])
+        {
+                i++;
+        }
+        while(str2[j])
+        {
+                str1[i+j]=str2[j];
+                j++;
+        }
+        str1[i+j]='\0';
+        printf("Strings are %s\n%s\n",str1,str2);
+        return 0;
+}
+```
+### Output:
+```
+Enter strings: Hello
+World!
+Strings are HelloWorld!
+World!
+```
+## 30.Write a c program to find the length of a string using a for loop.
+```c
+#include<stdio.h>
+int main()
+{
+        char str[20];
+        printf("String: ");
+        scanf("%s",str);
+        int len=0;
+        while(str[len])
+        {
+                len++;
+        }
+        printf("String length is %d",len);
+        return 0;
+}
+```
+### Output:
+```
+String: beautiful
+String length is 9
+```
 ## 31.Write a C program to covert a string to UPPERCASE using a while loop
 ```c
 #include<stdio.h>
