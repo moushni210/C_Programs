@@ -166,7 +166,7 @@ int main()
                 printf("Min: %d",b);
 }
 ```
-## 11
+## 11.Write a C program to print the day of the week for a given week number using switch case.
 ```c
 #include<stdio.h>
 int main()
@@ -195,7 +195,7 @@ int main()
         }
 }
 ```
-## Q12
+## 12.Write a C program to check whether a character is uppercase or lowercase.
 ```c
 #iclude<stdio.h>
 int main()
@@ -211,7 +211,7 @@ int main()
                 printf("enter a char");
 }
 ```
-## Q13
+## 13
 ```c
 #include<stdio.h>
 int main()
@@ -264,7 +264,7 @@ int main()
         }
 }
 ```
-## Q15
+## 15.Write a C program to print even numbers from 1 to 19.
 ```c
 #include<stdio.h>
 int main()
@@ -277,7 +277,9 @@ int main()
         }
 }
 ```
-## Q16
+## 16.Write a C program to calculate the sum of first 100 natural numbers using a while loop.
+```c
+#include<stdio.h>
 int main()
 {
         int i=1,sum=0;
@@ -288,7 +290,10 @@ int main()
         }
         printf("%d",sum);
 }
-Q17
+```
+## 17.Write a C program to calculate the factorial of a number using a for loop.
+```c
+#include<stdio.h>
 int main()
 {
         int x,fact=1,i;
@@ -305,7 +310,10 @@ int main()
         }       printf("factorial=%d",fact);
 
 }
-Q18
+```
+## 18.Write a C program to check whether a number is prime.
+```c
+#include<stdio.h>
 int main()
 {
         int x,count=0,i=1;
@@ -325,7 +333,7 @@ int main()
         }
 }
 ```
-## Q19
+## 19.Write a C program to calculate the sum of digits of a number.
 ```c
 #include<stdio.h>
 int main()
