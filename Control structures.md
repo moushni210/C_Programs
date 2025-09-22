@@ -1,4 +1,4 @@
-## Q1
+## 1.Write a c program to accept two integers and check whether they are equal or not?
 ```c
 #include<stdio.h>
 int main()
@@ -10,21 +10,22 @@ int main()
                 printf("Equal");
         else
                 printf("Not Equal");
-
+return 0;
 }
-
-Output:
+```
+### Output:
+```
 Enter two input values: 
 5
 7
 Not Equal
-
+``` ```
 Enter two input values: 
 8
 8
 Equal
 ```
-## Q2
+## 2.Write a c program to check whether a given number is even or odd?
 ```c
 #include<stdio.h>
 int main()
@@ -35,18 +36,18 @@ int main()
                 printf("Odd");
         else
                 printf("Even");
-
+return 0;
 }
 ```
 ### Output:
 ```
 6
 Even
-
+``` ```
 9
 Odd
 ```
-## 3
+## 3.Write a c program to check whether a given number is positive or negative?
 ```c
 #include<stdio.h>
 int main()
@@ -59,7 +60,7 @@ int main()
                 printf("Negative");
 }
 ```
-## 4
+## 4.Write a c program to find whether a given year is a leap year or not?
 ```c
 #include<stdio.h>
 int main()
@@ -70,10 +71,10 @@ int main()
                 printf("Leap Year");
         else
                 printf("Not a Leap Year");
-
+return 0;
 }
 ```
-## 5
+## 5.Write a c program to read the age of a candidate and determine whether he is eligible to cast his/her own vote?
 ```c
 #include<stdio.h>
 int main()
@@ -84,10 +85,10 @@ int main()
                 printf("Elegible to vote");
         else
                 printf("Inelegible");
-
+return 0;
 }
 ```
-## 6
+## 6.Write a c program to read the value of an integer m and display the value of n is 1 when m is larger than 0, 0 when m is 0 and -1 when m is less than 0.
 ```c
 #include<stdio.h>
 int main()
@@ -100,11 +101,12 @@ int main()
                 printf("N is 0");
         else
                 printf("N is -1");
-
+return 0;
 }
 ```     
-## 7
+## 7.Write a c program to find the largest of three numbers.
 ```c
+#include<stdio.h>
 int main()
 {
         int a,b,c;
@@ -119,11 +121,10 @@ int main()
                         printf("b is largest");
                 else
                         printf("c is largest");
-
-
+return 0;
 }
 ```    
-## 8
+## 8.Write a c program to check whether a character is a vowel or consonant.
 ```c
 #include<stdio.h>
 int main()
@@ -134,9 +135,10 @@ int main()
                 printf("it is a vowel");
         else
                 printf("its a consonant");
+return 0;
 }
 ```
-## 9
+## 9.Write a c program to check whether a character is an alphabet or not.
 ```c
 #include<stdio.h>
 int main()
@@ -147,9 +149,10 @@ int main()
                 printf("it is an alphabet");
         else
                 printf("it is not an alphabet");
+return 0;
 }
 ```
-## 10
+## 10.Write a c program to find minimum or maximum between two numbers.
 ```c
 int main()
 {
@@ -164,6 +167,7 @@ int main()
                 printf("Min: %d",a);
         else
                 printf("Min: %d",b);
+return 0;
 }
 ```
 ## 11.Write a C program to print the day of the week for a given week number using switch case.
@@ -193,11 +197,12 @@ int main()
                 default: printf("Invalid week number");
                          break;
         }
+return 0;
 }
 ```
 ## 12.Write a C program to check whether a character is uppercase or lowercase.
 ```c
-#iclude<stdio.h>
+#include<stdio.h>
 int main()
 {
         char ch;
@@ -209,9 +214,10 @@ int main()
                 printf("Lowercase");
         else
                 printf("enter a char");
+return 0;
 }
 ```
-## 13
+## 13.Write a program to find number of days in month.
 ```c
 #include<stdio.h>
 int main()
@@ -242,9 +248,10 @@ int main()
                 default: printf("invalid month");
                          break;
         }
+return 0;
 }
 ```
-## Q14
+## 14.Write a program to find maximum between two numbers using switch case.
 ```c
 #include<stdio.h>
 int main()
@@ -262,9 +269,10 @@ int main()
                 default:printf("equal");
                         break;
         }
+return 0;
 }
 ```
-## 15.Write a C program to print even numbers from 1 to 19.
+## 15.Write a C program to print even numbers from 1 to 20 using for loop.
 ```c
 #include<stdio.h>
 int main()
@@ -275,6 +283,7 @@ int main()
             if(i%2==0)
                  printf("%d\n",i);
         }
+return 0;
 }
 ```
 ## 16.Write a C program to calculate the sum of first 100 natural numbers using a while loop.
@@ -289,6 +298,7 @@ int main()
                 i++;
         }
         printf("%d",sum);
+return 0;
 }
 ```
 ## 17.Write a C program to calculate the factorial of a number using a for loop.
@@ -308,10 +318,10 @@ int main()
                         fact=fact*i;
                 }
         }       printf("factorial=%d",fact);
-
+return 0;
 }
 ```
-## 18.Write a C program to check whether a number is prime.
+## 18.Write a C program to check whether a number is prime using while loop.
 ```c
 #include<stdio.h>
 int main()
@@ -331,9 +341,10 @@ int main()
         {
                 printf("prime");
         }
+return 0;
 }
 ```
-## 19.Write a C program to calculate the sum of digits of a number.
+## 19.Write a C program to calculate the sum of digits of a number using while loop.
 ```c
 #include<stdio.h>
 int main()
@@ -347,9 +358,10 @@ int main()
                 num=num/10;
         }
         printf("sum=%d",sum);
+return 0;
 }
 ```
-## 20.Write a C program to print the Fibonacci series up to n terms.
+## 20.Write a C program to print the Fibonacci series up to n terms using for loop.
 ```c
 #include<stdio.h>
 int main()
@@ -369,7 +381,7 @@ int main()
         return 0; 
 }
 ```
-## 21.Write a C program to reverse a number.
+## 21.Write a C program to reverse a number using a while loop.
 ```c
 #include<stdio.h>
 int main()
@@ -386,7 +398,7 @@ int main()
     return 0;
 }
 ```
-## 22.Write a C program to find the largest element in an array.
+## 22.Write a C program to find the largest element in an array using a for loop.
 ```c
 #include <stdio.h>
 int main()
@@ -403,7 +415,7 @@ int main()
     return 0;
 }
 ```
-23.Write a C program to find the smallest element in an array.
+## 23.Write a C program to find the smallest element in an array using a for loop.
 ```c
 #include <stdio.h>
 int main()
@@ -421,7 +433,7 @@ int main()
     return 0;
 }
 ```
-## 24.Write a C program to print all elements of an array.
+## 24.Write a C program to print all elements of an array using a for loop.
 ```c
 #include <stdio.h>
 int main()
@@ -436,9 +448,9 @@ int main()
     return 0;
 }
 ```
-## 41.Write a C program to calculate the sum of array elements.
+## 25.Write a C program to calculate the sum of elements in an array using while loop.
 ```c
-#include <stdio.h>
+#include<stdio.h>
 int main()
 {
         int arr[8],i,sum=0,n=0;
@@ -456,7 +468,7 @@ int main()
         return 0;
 }
 ```
-## 26.Write a C program to count the number of vowels in a string.
+## 26.Write a C program to count the number of vowels in a string using for loop.
 ```c
 #include <stdio.h>
 int main()
@@ -513,6 +525,7 @@ int main()
                 i++;
         }
         printf("string output is : %s",str);
+return 0;
 }
 ```
 ## 32.Write a c program to find the power of a number using a for loop
