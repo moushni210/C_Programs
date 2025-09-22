@@ -348,7 +348,10 @@ int main()
         }
         printf("sum=%d",sum);
 }
-Q20
+```
+## 20.Write a C program to print the Fibonacci series up to n terms.
+```c
+#include<stdio.h>
 int main()
 {
         int i,fab,a,b,n;
@@ -362,8 +365,13 @@ int main()
                 b=fab;
                 printf("%d ",fab);
         }
+        printf("\n");
+        return 0; 
 }
-Q21
+```
+## 21.Write a C program to reverse a number.
+```c
+#include<stdio.h>
 int main()
 {
         int rev=0,num,n=1,r;
@@ -374,25 +382,30 @@ int main()
                 rev=(rev*10)+r;
                 num=num/10;
         }
-        printf("%d",rev);
+        printf("Reversed number = %d\n", rev);
+    return 0;
 }
-
-
-Q22
+```
+## 22.Write a C program to find the largest element in an array.
+```c
+#include <stdio.h>
 int main()
 {
         int arr[ ]={9,4,54,21,6};
         int i,lar=arr[0];
-        for(i=1;i<5;i++)
-        {
-                if(arr[i]>lar)
+        for(i=1;i<5;i++){
+               if(arr[i]>lar)
                 {
                         lar=arr[i];
                 }
         }
-        printf("%d",lar);
+        printf("Largest element = %d\n", lar);
+    return 0;
 }
-Q23
+```
+23.Write a C program to find the smallest element in an array.
+```c
+#include <stdio.h>
 int main()
 {
         int arr[6]={9,34,6,8,19,12};
@@ -404,10 +417,13 @@ int main()
                         small=arr[i];
                 i++;
         }
-        printf("%d",small);
+        printf("Smallest element = %d\n", small);
+    return 0;
 }
-
-Q24
+```
+## 24.Write a C program to print all elements of an array.
+```c
+#include <stdio.h>
 int main()
 {
         int arr[]={1,2,3,3,4,5,8,9};
@@ -416,8 +432,13 @@ int main()
         {
                 printf("%d\t",arr[i]);
         }
+        printf("\n");
+    return 0;
 }
-Q25
+```
+## 41.Write a C program to calculate the sum of array elements.
+```c
+#include <stdio.h>
 int main()
 {
         int arr[8],i,sum=0,n=0;
@@ -431,11 +452,13 @@ int main()
                 sum=sum+arr[n];
                 n++;
         }
-        printf("sum of array elements: %d",sum);
+        printf("sum of array elements: %d\n",sum);
+        return 0;
 }
-
-
-Q26
+```
+## 26.Write a C program to count the number of vowels in a string.
+```c
+#include <stdio.h>
 int main()
 {
         char str[]= "hello everyone";
@@ -449,28 +472,32 @@ int main()
                          count++;
                 }
         }
-        printf("%d",count);
+         printf("Number of vowels = %d\n", count);
+    return 0;
 }
-*/
-
-   // incomplete Q27
-/*
-#include<string.h>
+```
+## 27.Write a C program to count the number of words in a string using a while loop.
+```c
+#include<stdio.h>
 int main()
 {
-        char str[10];
+        char str[100];
         int count=0,i=0;
         printf("ENTER A string:\n");
-        scanf("%s",str);
+        fgets(str,sizeof(str),stdin);
         while(str[i]!= '\0')
         {
                 if(str[i]== ' ' || str[i]=='\n' || str[i] =='\t')
                         count++;
                 i++;
         }
-        printf("No. of words=%d",count);
+        printf("No. of words=%d\n",count+1);
+        return 0;
 }
-Q31
+```
+## 31.Write a C program to covert a string to UPPERCASE using a while loop
+```c
+#include<stdio.h>
 int main()
 {
         char str[20];
@@ -487,7 +514,9 @@ int main()
         }
         printf("string output is : %s",str);
 }
-Q32
+```
+## 32.Write a c program to find the power of a number using a for loop
+#include<stdio.h>
 int main()
 {
         int base,exp,power=1,i;
@@ -498,6 +527,7 @@ int main()
                 power=base*power;
         }
         printf("Power of given number is: %d",power);
+        return 0;
 }
 ## 33.WRITE A C PROGRAM TO FIND THE FACTORIAL OF A NUMBER USING A WHILE LOOP? 
 ```c
@@ -513,8 +543,12 @@ int main()
                 i++;
         }
         printf("Factorial= %d",fact);
+        return 0;   
 }
-Q34
+```
+## 34.Write a c program to find the gcd of two numbers using a while loop.
+```c
+#include<stdio.h>
 int main()
 {
         int a,b,r;
@@ -527,10 +561,12 @@ int main()
                 b=r;
         }
         printf("Gcd of 2 numbers is %d",a);
+        return 0;
 }
-*/
-
-/* Q35
+```
+## 35.Write a c program to find the lcm of two numbers using a for loop.
+```c
+#include<stdio.h>
 int main()
 {
          int a,b,i;
@@ -543,22 +579,26 @@ int main()
                          break;
                  }
 }
+return 0;
 }
-*/
-
-/* Q36
+```
+## 36.Write a c program to print the multiplication table of a given number using a FOR loop.
+```c
+#include<stdio.h>
 int main()
 {
         int n,i;
         scanf("%d",&n);
+        printf("multiplication table of %d is\n",n);
         for(i=1;i<=10;i++)
         {
                 printf("%d * %d =%d \n",n,i,n*i);
         }
+return 0;
 }
-*/
-
-// Q37
+```
+## 37.Write a program in c to print the armstrong numbers between 1 and 1000 using a for loop.
+```c
 #include<stdio.h>
 #include<math.h>
 int main()
@@ -587,8 +627,12 @@ int main()
                         printf("%d is Armstrong number\n",i);
                 }
         }
+return 0;
 }
-Q38
+```
+## 38.Write a program in c to implement a simple calculator using switch-case statements.
+```c
+#include<stdio.h>
 int main()
 {
         int a,b,res;
@@ -617,11 +661,13 @@ int main()
                           break;
                 default: printf("Invalid input");
         }
-        printf("result is %d",res);
+        printf("result is %d\n",res);
+return 0;
 }
-*/
-
-/* Q39
+```
+## 39.Write a program in c to check whether a given number is a palindrome or not using while loops and if-else statements.
+```c
+#include<stdio.h>
 int main()
 {
         int num,res=0,n,org;
@@ -638,10 +684,12 @@ int main()
                 printf("Palindrome");
 else
                 printf("not a palindrome");
+        return 0;
 }
-*/
-
-/*   Q40
+```
+## 40.Write a program in c to find the sum of elements in the lower triangular matrix using loops and if-else statements.
+```c
+#include<stdio.h>
 int main()
 {
         int i,j,m,sum=0;
@@ -673,11 +721,12 @@ for(i=0;i<m;i++){
         }
 
         printf("the sum of lower triangular matrix is: %d \n",sum);
+        return 0; 
 }
-
-*/
-
-/* Q 41
+```
+## 41.Write a program in c to find the sum of elements in the upper triangular matrix using loops and if-else statements.
+```c
+#include<stdio.h>
 int main()
 {
         int i,j,m,sum=0;
@@ -709,8 +758,12 @@ for(j=0;j<m;j++){
  }
                         }
          printf("the sum of upper triangular matrix is: %d \n",sum);
+         return 0;
   }
-Q42
+```
+## 42.Write a program in c to remove duplicate elements from an array using loops and if-else statements.
+```c
+#include<stdio.h>
 int main()
 {
         int n,i,j,k;
@@ -739,4 +792,7 @@ int main()
         for(i=0;i<n;i++){
                 printf("%d ",arr[i]);
         }
+return 0;
 }
+```
+
