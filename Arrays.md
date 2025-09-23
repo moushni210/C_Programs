@@ -109,8 +109,7 @@ enter array elements:
 4 1 2
 3 1 5
 not a symmetric matrix
-```
-```
+``` ```
 enter size: 3
 enter array elements:
 1
