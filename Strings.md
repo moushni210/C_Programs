@@ -1731,7 +1731,30 @@ Last occurence at index: 39
 
 ## 71. Write a C program to search all occurrences of a word in a given string.
 ```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],word[20];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
 
+        printf("Enter word to search: ");
+        scanf("%s",word);
+
+        char *pos = str;
+        int found=0;
+        while((pos = strstr(pos, word)) != NULL)
+        {
+                printf("Found at index: %ld\n",pos-str);
+                pos++;
+                found=1;
+        }
+        if(!found)
+                printf("Word not found.\n");
+        return 0;
+}
 ```
 ### Output:
 ```
@@ -1740,4 +1763,40 @@ Enter word to search: test
 Found at index: 10
 Found at index: 19
 Found at index: 39
+```
+
+## 72. Write a C program to count occurrences of a word in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],word[20];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter word to search: ");
+        scanf("%s",word);
+
+        char *pos = str;
+        int found=0,count=0;
+        while((pos = strstr(pos, word)) != NULL)
+        {
+                pos++;
+                found=1;
+                count++;
+        }
+        if(found)
+                printf("word occurred %d times.\n",count);
+        else
+                printf("Word not found.\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter string: i have to test the test paper for tmrw test.
+Enter word to search: test
+word occurred 3 times.
 ```
