@@ -1120,3 +1120,624 @@ Final string is "Paciluer"
 Enter string: Beautiful
 Final string is "Buiutafel"
 ```
+
+## 51. Write a C program to count the total number of words in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int i=0,word=0;
+        while(str[i])
+        {
+                if(str[i]== ' '  || str[i+1] == '\0')
+                {
+                        word++;
+                }
+                i++;
+        }
+        printf("%d no. of words are present.\n",word);
+}
+```
+### Output:
+```
+Enter string: Hi are u alright ,it's good to see u back.
+10 no. of words are present.
+```
+
+## 52. Write a C program to find the reverse of a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        int i=0,j,temp;
+        int len=strlen(str);
+        for(i=0,j=len-1;i<j;i++,j--)
+        {
+                temp=str[i];
+                str[i]=str[j];
+                str[j]=temp;
+        }
+        printf("reverse of string is %s.\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: intelligent
+reverse of string is tnegilletni.
+```
+
+## 53. Write a C program to check whether a string is palindrome or not.
+```c
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+        char revstr[30],orgstr[30];
+        printf("Enter string: ");
+        fgets(orgstr,sizeof(orgstr),stdin);
+        orgstr[strcspn(orgstr, "\n")]='\0';
+
+        strcpy(revstr,orgstr);
+        int i=0,j,temp;
+        int len=strlen(orgstr);
+        for(i=0;i<len;i++)
+        {
+                orgstr[i]=tolower(orgstr[i]);
+        }
+
+        for(i=0,j=len-1;i<j;i++,j--)
+        {
+                temp=revstr[i];
+                revstr[i]=revstr[j];
+                revstr[j]=temp;
+        }
+        if(strcmp(revstr,orgstr) == 0)
+                printf("Palindrome string.\n");
+        else
+                printf("Not a palindrome.\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter string: Intelligent
+Not a palindrome.
+``` ```
+Enter string: reviver
+Palindrome string.
+```
+
+## 54. Write a C program to reverse order of words in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+
+void reverse(char* begin, char* end)
+{
+        char temp;
+        while(begin < end)
+        {
+                temp = *begin;
+                *begin++ = *end;
+                *end-- = temp;
+        }
+}
+
+void reversewords(char* s)
+{
+        char* word_start =s;
+        char* temp=s;
+
+        while(*temp)
+        {
+                temp++;
+                if(*temp == '\0')
+                {
+                        reverse(word_start,temp-1);
+                }
+                else if(*temp == ' ')
+                {
+                        reverse(word_start,temp-1);
+                        word_start = temp+1;
+                }
+        }
+        reverse(s,temp-1);
+}
+
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char* temp=str;
+        reversewords(str);
+        printf("Resultant: %s.\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: i love travelling all around the world
+Resultant: world the around all travelling love i.
+```
+
+## 55. Write a C program to find the first occurrence of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=0,flag=0;
+        while(str[i])
+        {
+                if(str[i] == ch)
+                {
+                        printf("first occurrence of char \'%c\' is at %d pos.\n ",ch,i+1);
+                        flag=1;
+                        break;
+                }
+                i++;
+        }
+        if(flag=0)
+        {
+                printf("\'%c\' is not present in string.\n",ch);
+        }
+
+        return 0;
+}
+```
+### Output:
+```
+Enter string: amsterdam
+enter char: m
+first occurrence of char 'm' is at 2 pos.
+```
+
+## 56. Write a C program to find the last occurrence of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=strlen(str)-1,flag=0;
+        while(str[i]>=0)
+        {
+                if(str[i] == ch)
+                {
+                        printf("last occurrence of char \'%c\' is at %d pos.\n ",ch,i+1);
+                        flag=1;
+                        break;
+                }
+                i--;
+        }
+        if(flag=0)
+        {
+                printf("\'%c\' is not present in string.\n",ch);
+        }
+
+        return 0;
+}
+```
+### Output:
+```
+Enter string: proposterous
+enter char: o
+last occurrence of char 'o' is at 10 pos.
+```
+
+## 57. Write a C program to search all occurrences of a character in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=0,flag=0;
+        printf("Occurrences of \'%c\'",ch);
+        while(str[i])
+        {
+                if(str[i] == ch)
+                {
+                        printf(" at %d pos.\n ",i+1);
+                        flag=1;
+                }
+                i++;
+        }
+        if(flag=0)
+        {
+                printf("is not present in string.\n");
+        }
+        return 0;
+}
+
+```
+### Output:
+```
+Enter string: proposterous
+enter char: o
+Occurrences of 'o' at 3 pos.
+  at 5 pos.
+  at 10 pos.
+```
+
+## 62. Write a C program to remove the first occurrence of a character from a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=0,j;
+        while(str[i])
+        {
+                if(str[i] == ch)
+                {
+                        for(j=i;str[j]!='\0';j++)
+                        {
+                                str[j]=str[j+1];
+                        }
+                        str[j]='\0';
+                        break;
+                }
+                i++;
+        }
+        printf("Resultant:\' %s \'\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: prepone
+enter char: e
+Resultant:' prpone '
+```
+
+## 63. Write a C program to remove the last occurrence of a character from a string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=strlen(str)-1,j;
+        while(str[i]>=0)
+        {
+                if(str[i] == ch)
+                {
+                        for(j=i;str[j]!='\0';j++)
+                        {
+                                str[j]=str[j+1];
+                        }
+                        str[j]='\0';
+                        break;
+                }
+                i--;
+        }
+        printf("Resultant:\' %s \'\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: preoperation
+enter char: r
+Resultant:' preopeation '
+```
+
+## 64. Write a C program to remove all occurrences of a character from a string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        char ch;
+        printf("enter char: ");
+        scanf("%c",&ch);
+
+        int i=0,j;
+        while(str[i])
+        {
+                if(str[i] == ch)
+                {
+                        for(j=i;str[j]!='\0';j++)
+                        {
+                                str[j]=str[j+1];
+                        }
+                        str[j]='\0';
+                }
+                i++;
+        }
+        printf("Resultant:\' %s \'\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: banana
+enter char: a
+Resultant:' bnn '
+```
+
+## 65. Write a C program to remove all repeated characters from a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]= '\0';
+
+        int i,j,k;
+        for(i=0;str[i]!='\0';i++) {
+                for(j=i+1;str[j]!='\0';j++) {
+                        if(str[i]==str[j]) {
+                                for(k=j;str[k]!='\0';k++){
+                                        str[k]=str[k+1];
+                                }
+                                str[k]='\0';
+                        }
+                }
+        }
+        printf("Resultant string: \"%s\"\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: anonymous
+Resultant string: "anoymus"
+```  ```
+Enter string: preposterous
+Resultant string: "preostu"
+```
+
+## 66. Write a C program to replace the first occurrence of a character with another in a string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30],ch,rch;
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter char to search: ");
+        scanf("%c",&ch);
+        printf("char to replace: ");
+        scanf(" %c",&rch);
+
+        int i=0;
+        while(str[i])
+        {
+                if(str[i]==ch) {
+                        str[i]=rch;
+                        break;
+                }
+                i++;
+        }
+        printf("Resulting string: \"%s\"\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: pencilin
+Enter char to search: i
+char to replace: o
+Resulting string: "pencolin"
+```
+
+## 67. Write a C program to replace the last occurrence of a character with another in a string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30],ch,rch;
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter char to search: ");
+        scanf("%c",&ch);
+        printf("char to replace: ");
+        scanf(" %c",&rch);
+
+        int i = strlen(str)-1;
+        while(i>=0)
+        {
+                if(str[i]==ch) {
+                        str[i]=rch;
+                        break;
+                }
+                i--;
+        }
+        printf("Resulting string: \"%s\"\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: pomogranate
+Enter char to search: a
+char to replace: i
+Resulting string: "pomogranite"
+```
+
+## 68. Write a C program to replace all occurrences of a character with another in a string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[30],ch,rch;
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter char to search: ");
+        scanf("%c",&ch);
+        printf("char to replace: ");
+        scanf(" %c",&rch);
+
+        int i = 0;
+        while(str[i])
+        {
+                if(str[i]==ch) {
+                        str[i]=rch;
+                }
+                i++;
+        }
+        printf("Resulting string: \"%s\"\n",str);
+        return 0;
+}
+```
+### Output:
+```
+Enter string: giggling
+Enter char to search: g
+char to replace: z
+Resulting string: "zizzlinz"
+```
+
+## 69. Write a C program to find the first occurrence of a word in a given string.
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],word[20];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter word to search: ");
+        scanf("%s",word);
+
+        char *pos = strstr(str, word);
+        if(pos)
+                printf("First occurence at index: %ld\n",pos-str);
+        else
+                printf("Word not found.\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter string: i have to test the test paper for tmrw test .
+Enter word to search: test
+First occurence at index: 10
+```
+
+## 70. Write a C program to find the last occurrence of a word in a given string. 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100],word[20];
+        printf("Enter string: ");
+        fgets(str,sizeof(str),stdin);
+        str[strcspn(str, "\n")]='\0';
+
+        printf("Enter word to search: ");
+        scanf("%s",word);
+
+        char *pos = NULL, *temp = str;
+        while((temp = strstr(temp, word)) != NULL)
+        {
+                pos = temp;
+                temp++;
+        }
+        if(pos)
+                printf("Last occurence at index: %ld\n",pos-str);
+        else
+                printf("Word not found.\n");
+        return 0;
+}
+```
+### Output:
+```
+Enter string: i have to test the test paper for tmrw test .
+Enter word to search: test
+Last occurence at index: 39
+```
+
+## 71. Write a C program to search all occurrences of a word in a given string.
+```c
+
+```
+### Output:
+```
+Enter string: i have to test the test paper for tmrw test.
+Enter word to search: test
+Found at index: 10
+Found at index: 19
+Found at index: 39
+```
