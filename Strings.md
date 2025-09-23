@@ -1800,3 +1800,115 @@ Enter string: i have to test the test paper for tmrw test.
 Enter word to search: test
 word occurred 3 times.
 ```
+
+## 73. Write a C program to remove the first occurrence of a word from a string.
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[100], word[20];
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    printf("Enter the word to remove: ");
+    scanf("%s", word);
+
+    char *pos = strstr(str, word);
+    if (pos) {
+        int len = strlen(word);
+        memmove(pos, pos + len, strlen(pos + len) + 1);
+        printf("After removing first occurrence: \"%s\"\n", str);
+    } else {
+        printf("Word not found.\n");
+    }
+    return 0;
+}
+```
+### Output:
+```
+Enter the string: i have to test the test paper for tmrw's test.
+Enter the word to remove: test
+After removing first occurrence: "i have to  the test paper for tmrw's test."
+```
+
+## 74. Write a C program to remove the last occurrence of a word in a given string. 
+```c
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str[100], word[20];
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    printf("Enter the word to remove: ");
+    scanf("%s", word);
+
+    char *pos = NULL, *temp = str;
+
+    while((temp = strstr(temp, word)) != NULL)
+    {
+            pos = temp;
+            temp++;
+    }
+
+    if(pos)
+    {
+            int len = strlen(word);
+            memmove(pos, pos + len, strlen(pos + len) + 1);
+            printf("After removing last occurrence: \"%s\"\n", str);
+    }
+    else
+            printf("Word not found.\n");
+
+    return 0;
+}
+```
+### Output:
+```
+Enter the string: i have to test the test paper for tmrw's test.
+Enter the word to remove: test
+After removing last occurrence: "i have to test the test paper for tmrw's ."
+```
+
+## 75. Write a C program to remove all occurrences of a word in a given string.
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[100], word[20];
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    printf("Enter the word to remove: ");
+    scanf("%s", word);
+
+    char *pos;
+    int len = strlen(word),flag=0;
+
+    while((pos = strstr(str, word)) != NULL)
+    {
+            memmove(pos, pos + len, strlen(pos + len) + 1);
+            flag=1;
+    }
+    if(flag)
+            printf("After removing all occurrences: \"%s\"\n", str);
+    else
+            printf("Word not found.\n");
+
+    return 0;
+}
+```
+### Output:
+```
+Enter the string: i have to test the test paper for tmrw's test.
+Enter the word to remove: test
+After removing all occurrences: "i have to  the  paper for tmrw's ."
+```
