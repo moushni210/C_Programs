@@ -109,7 +109,8 @@ enter array elements:
 4 1 2
 3 1 5
 not a symmetric matrix
-``` ```
+```
+```
 enter size: 3
 enter array elements:
 1
@@ -166,7 +167,8 @@ enter elements:
 4
 5
 elements of array are Distinct
-``` ```
+```
+```
 enter array size: 6
 enter elements:
 1
@@ -402,7 +404,8 @@ enter elements:
 7
 8
 array is in ascending order.
-``` ```
+```
+```
 enter array size: 5
 enter elements:
 1
